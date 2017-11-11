@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/vendor/lumx.css')
+    link(rel='stylesheet', href='/vendor/flexboxgrid.css')
+    link(rel='stylesheet', href='/styles/main.css')
+    link(rel='shortcut icon', href='img/logo-almundo.svg', type='image/svg')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700')
+    link(href='https://fonts.googleapis.com/css?family=Lato', rel='stylesheet')
+  body
+    block content
+    
+    block footer
+      script(src="/vendor/jquery.min.js")
+      script(src="/vendor/angular.min.js")
+      script(src="/vendor/angular-route.js")
+      script(src="/vendor/velocity.min.js")
+      script(src="/vendor/moment-with-locales.min.js")
+      script(src="/vendor/lumx.min.js")
+      script(src="/scripts/hotels.js")

@@ -1,0 +1,67 @@
+<!-- <div class="row bgc-indigo-700 ph++ pv+ mb+">
+        <img src="resources\assets\images\logo-almundo.svg" alt="logo-almungo"height="50">
+</div> -->
+<div class="row around-xs">
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 card bgc-white" style="padding: 0;height: 50%;margin-left: 1.5em;margin-bottom: 1em;">
+        <div class="col-xs-offset-0 col-xs-12 filter">Filtros</div>
+        <accordion>
+            <fieldset class="fieldset-search">
+                <h2 class="col-xs-offset-0 col-xs-12 fieldset-search-title">
+                    <i class="mdi mdi-magnify mr"></i>Nombre del hotel</h2>
+                <div>
+                    <div class="p+">
+                        <div class="card">
+                            <lx-search-filter>
+                                <input type="search" ng-model="vm.filter.autocomplete" placeholder="Ingrese el nombre del hotel">
+                            </lx-search-filter>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </accordion>
+        <accordion>
+            <fieldset class="fieldset-stars">
+                <h2 class="col-xs-offset-0 col-xs-12 fieldset-stars-title">
+                    <i class="mdi mdi-star mr"></i>Estrellas</h2>
+                <div>
+                    <div class="p+">
+                        <lx-checkbox ng-model="vm.filter.allStar" lx-color="blue">Todos las estrellas</lx-checkbox>
+                    </div>
+                    <div class="p+" ng-repeat="start in vm.filter.stars track by $index">
+                        <lx-checkbox ng-model="start.is" lx-color="blue">
+                            <i ng-repeat="icon in start.number track by $index" class="mdi mdi-star tc-yellow-600"></i>
+                        </lx-checkbox>
+                    </div>
+                </div>
+            </fieldset>
+        </accordion>
+    </div>
+    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" style="padding: 0;margin-right: 1.5em;">
+        <div class="row card-hotel bgc-white mb+" ng-repeat="hotel in vm.hotels | filter:vm.filtro track by $index">
+            <div class="image-hotel col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <img class="image-hotel" ng-src="img/hotels/{{hotel.image}}" alt="img-hotel">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                <div class="row info-hotel-container">
+                    <span class="col-xs-offset-0 col-xs-12 hotel-name">{{hotel.name}}</span>
+                    <span class="col-xs-offset-0 col-xs-12 hote-stars">
+                        <i class="mdi mdi-star tc-yellow-500" ng-repeat="start in hotel.starts track by $index"></i>
+                    </span>
+                    <span class="col-xs-offset-0 col-xs-12 hotel-services row mt ml">
+                        <img class="mr" ng-repeat="amenite in hotel.amenities" ng-src="{{'img/amenities/'+amenite+'.svg'}}" height="15">
+                    </span>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                <div class=" row price-container">
+                    <span class="col-xs-offset-0 col-xs-12 first-row">Precio por noche por habitación</span>
+                    <span class="currency">ARS</span>
+                    <span class="price">{{hotel.price | number}}</span>
+                    <div class="col-xs-offset-0 col-xs-12 p+ btn-view-hotel">
+                        <lx-button ng-click="vm.fGoto(hotel._id)" lx-type="raised btn-view-hotel">Ver hotel</lx-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
